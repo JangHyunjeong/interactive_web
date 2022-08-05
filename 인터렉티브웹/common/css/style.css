@@ -1,0 +1,234 @@
+html, body {
+    font-size: 62.5%;
+    line-height: 1.285;
+}
+body {
+    min-width: 320px;
+    color: #000;
+    line-height: 1.45;
+    font-family: 'sf ui display', 'Noto Sans KR', sans-serif;
+}
+
+.container {
+    background-color: #000;
+    position: relative;
+}
+
+
+.mainLogo {
+    position: absolute;
+    left: 6rem;
+    top: calc(100vh - 14rem);
+    width: 34.7rem;
+    transition: 1s ease;
+    filter: brightness(0) invert(1);
+    z-index: 5;
+}
+.mainLogo.off {
+    top: -14rem;
+}
+
+.mainPagination {
+    height: calc(100vh - 12rem);
+    display: flex;
+    position: fixed;
+    right: 16rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+.mainPagination li {
+    width: 20rem;
+    height: 100%;
+    position: relative;
+    transition: all 1s ease;
+    overflow: visible;
+}
+.mainPagination li::before,
+.mainPagination li::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 50%;
+    background-color: #fff;
+    transition: 0.5s;
+}
+.mainPagination li::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+}
+.mainPagination li::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform-origin: 0 100%;
+}
+.mainPagination li span {
+    color: #fff;
+    font-size: 1.6rem;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+    position: absolute;
+    left: 2.5rem;
+    bottom: 0;    
+    z-index: 1;
+    opacity: 0.8;
+    transition: 0.5s;
+}
+/* hover */
+.mainPagination li:hover::before {
+    transform: rotate(-10deg);
+    height: 51%;
+}
+.mainPagination li:hover::after {
+    transform: rotate(10deg);
+    height: 51%;
+}
+.mainPagination li:hover span {
+    font-size: 4rem;
+    opacity: 1;
+}
+
+/* sec02 부터 pagination */
+.mainPagination.off {
+    pointer-events: none;
+}
+.mainPagination.off li:not(:last-child) {
+    width: 0;
+    opacity: 0;
+}
+
+
+/* main banner */
+.mainBannerRail {
+    height: 300vh;
+}
+.mainBanner {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255,255,255,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: opacity 1s;
+}
+.mainBanner.off {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+.mainTit {
+    position: absolute;
+    top: calc(100% + 16.8rem);
+    left: 6rem;
+    font-weight: 500;
+    list-style: 1.2;
+    transition: .8s ease;
+    color: #fff;
+    font-size: 3rem;
+}
+.mainTit.on {
+    top: 6rem;
+}
+.mainPoint {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, calc(-50% + 30px));
+    font-size: 16px;
+    color: #fff;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.mainPoint.on {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+.mainPoint > .tit {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    font-weight: 700;
+}
+.mainPoint > .tit > p {
+    display: flex;
+    flex-direction: column;
+    font-size: 4rem;
+    height: 4rem;
+    line-height: 1em;
+    overflow: hidden;
+}
+.mainPoint > .tit > p > span {
+    transition: transform 0.5s;
+}
+.mainPoint > .tit > ul > li {
+    opacity: 0.5;
+}
+.mainPoint > .tit > ul > li.on{
+    opacity: 1;
+}
+
+.mainPoint > .txt {
+    overflow: hidden;
+    margin-top: 50px;
+    line-height: 1.6em;
+    height: calc(1.6em * 2);
+}
+.mainPoint > .txt p {
+    transition: transform 0.5s;
+}
+
+
+
+
+
+/* 슬로건 영역 스크롤 이벤트 */
+.mainPoint.s1 .sTransTarget {
+    transform: translateY(0);
+}
+.mainPoint.s2 .sTransTarget {
+    transform: translateY(-100%);
+}
+.mainPoint.s3 .sTransTarget {
+    transform: translateY(-200%);
+}
+.mainPoint.s1 ul > li:first-child {
+    opacity: 1 !important;
+}
+.mainPoint.s2 ul > li:nth-child(2) {
+    opacity: 1 !important;
+}
+.mainPoint.s3 ul > li:nth-child(3) {
+    opacity: 1 !important;
+}
+
+
+
+
+
+
+/* company section */
+/* mainCompanyRail */
+.mainCompanyRail {
+    height: 500vh;
+    background-color: gray;
+}
+.comVisualTit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 5rem;
+    letter-spacing: 4rem;
+    color: #fff;
+    opacity: 0.5;
+}
+/* opacity 0 ~ 1 */
+/* letterspacing 1 ~ 0 */
+.jsMainCompany.on .comVisualTit {
+    position: fixed;
+}
